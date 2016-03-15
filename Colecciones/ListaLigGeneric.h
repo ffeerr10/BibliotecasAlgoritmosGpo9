@@ -7,8 +7,9 @@
 *	- Esta lista tiene la característica de poder almacenar cualquier tipo de dato por medio del uso de apuntadores
 */
 
-#include <stdio.h>
+//#include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /*Estructura Nodo
 	Guarda un nodo para una lista ligada generica.
@@ -22,19 +23,31 @@ typedef struct nodoGenerico {
 
 typedef struct listaLigadaGenerica {
    Nodo *inicio;
-   Nodo *final;
+   unsigned int unidad;
 } ListaLigada;
 
 
-Nodo* listaL_ingresar(NodoInt **inicio, int dato);
+ListaLigada* listaL_crear(unsigned int unidad);
 
-Nodo* listaL_ingresarEn(NodoInt **inicio, int dato, unsigned int indice);
+void listaL_agregar(ListaLigada *lista, void *dato);
 
-void* listaL_obtener(NodoInt **inicio, unsigned int indice);
+void listaL_push(ListaLigada *lista, void *dato);
 
-Nodo* listaL_remover(NodoInt **inicio, unsigned int indice);
+void listaL_ingresar(ListaLigada *lista, void *dato, unsigned int indice);
 
-Nodo* listaL_borrar(NodoInt **inicio);
+unsigned int listaL_size(ListaLigada *lista);
+
+void* listaL_obtener(ListaLigada *lista, unsigned int indice);
+
+void* listaL_contiene(ListaLigada *lista, void *dato);
+
+void* listaL_pop(ListaLigada *lista, void *dato);
+
+void listaL_remover(ListaLigada *lista, unsigned int indice);
+
+void listaL_limpiar(ListaLigada *lista);
+
+void listaL_borrar(ListaLigada *lista);
 
 
 #endif // LISTALIGGENERIC_H_
